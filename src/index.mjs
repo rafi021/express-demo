@@ -1,3 +1,6 @@
+import debug from "debug";
+const startupDebugger = debug('app:startup');
+const dbDebugger = debug('app:db');
 import express from "express";
 import { PORT } from "./config/env.js";
 import router from "./routes/index.js";
@@ -5,7 +8,9 @@ import logger from "./middleware/logger.js";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
-import config from "config";
+//import config from "config";
+
+
 
 const app = express();
 
@@ -18,14 +23,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(helmet());
 app.use(cors());
+
 if (app.get("env") === "development") {
   app.use(morgan("tiny"));
-  console.log("Morgan Enabled....");
+  startupDebugger('Morgan enabled ....')
 }
 
+
+// DB Work
+dbDebugger('Connected to db debug')
+
 // Configuration
-console.log("Application Name: " + config.get("name"));
-console.log("Mail Server Name: " + config.get("mail.host"));
+//console.log("Application Name: " + config.get("name"));
+//console.log("Mail Server Name: " + config.get("mail.host"));
 
 app.use(logger);
 
