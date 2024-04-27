@@ -5,8 +5,12 @@ import logger from "./middleware/logger.js";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
+import config from "config";
 
 const app = express();
+
+// console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+// console.log(`app: ${app.get("env")}`);
 
 //middleware
 app.use(express.json());
@@ -14,7 +18,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(helmet());
 app.use(cors());
-app.use(morgan("tiny"));
+if (app.get("env") === "development") {
+  app.use(morgan("tiny"));
+  console.log("Morgan Enabled....");
+}
+
+// Configuration
+console.log("Application Name: " + config.get("name"));
+console.log("Mail Server Name: " + config.get("mail.host"));
 
 app.use(logger);
 
