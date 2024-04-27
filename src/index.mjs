@@ -4,12 +4,11 @@ const dbDebugger = debug('app:db');
 import express from "express";
 import { PORT } from "./config/env.js";
 import router from "./routes/index.js";
-import logger from "./middleware/logger.js";
+//import logger from "./middleware/logger.js";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
 //import config from "config";
-
 
 
 const app = express();
@@ -37,7 +36,7 @@ dbDebugger('Connected to db debug')
 //console.log("Application Name: " + config.get("name"));
 //console.log("Mail Server Name: " + config.get("mail.host"));
 
-app.use(logger);
+// app.use(logger);
 
 // register routes
 app.use(router);
