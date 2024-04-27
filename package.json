@@ -13,6 +13,9 @@
   "description": "A Express JS Practice Application",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
     "nodemon": "^3.1.0",
     "prisma": "^5.13.0"
   },
