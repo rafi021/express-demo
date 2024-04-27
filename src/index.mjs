@@ -1,13 +1,12 @@
 import express from "express";
+import { PORT } from "./config/env.js";
+import router from "./routes/index.js";
 
 const app = express();
 
 // register routes
-app.get("/", (req, res) => {
-  res.send("Up and Running");
-});
+app.use(router);
 
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running at:${PORT}`);
 });
