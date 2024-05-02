@@ -7,17 +7,24 @@
     "dev": "nodemon ./src/index.mjs",
     "start": "node ./src/index.mjs"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "demo",
+    "express",
+    "express-demo"
+  ],
+  "author": "Eng. Mahmud Ibrahim",
   "license": "ISC",
   "description": "A Express JS Practice Application",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@snaplet/copycat": "^5.0.0",
+    "@snaplet/seed": "^0.97.2",
     "cors": "^2.8.5",
     "helmet": "^7.1.0",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.0",
-    "prisma": "^5.13.0"
+    "prisma": "^5.13.0",
+    "tsx": "^4.8.2"
   },
   "dependencies": {
     "@prisma/client": "^5.13.0",
@@ -25,5 +32,8 @@
     "debug": "^4.3.4",
     "dotenv": "^16.4.5",
     "express": "^4.19.2"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }
